@@ -6,40 +6,32 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-public class ClsAlumno {
-   public int idalumno;
-   public String apellidos;
-   public String nombres;
-   public String fechaNacimiento;
-   public String sexo;
-   public String direccion;
-   public String telefono;
-   public String email;
-   public String password;
-   public String grado;
-   public String seccion;
+public class ClsAsegurados {
+   public int NumAsegurados;
+   public String NomAseg;
+   public String FechaNac;
+   public String Categoria;
+   public String Hospital;
+   public String Estado;
+   
    //Constructor
-   public ClsAlumno(){
+   public ClsAsegurados(){
    }
    
    /**Lógica-Método para Registrar Persona*/
-public boolean RegistrarAlumno(){
+    public boolean RegistrarAsegurados(){
      boolean respuesta=true;
      
     try {
-         Datos.ClsAlumno alumno=new Datos.ClsAlumno();
-         alumno.idalumno=this.idalumno;
-         alumno.apellidos=this.apellidos;
-         alumno.nombres=this.nombres;
-         alumno.fechaNacimiento=ConvertirFecha(this.fechaNacimiento);
-         alumno.sexo=this.sexo;
-         alumno.direccion=this.direccion;
-         alumno.telefono=this.telefono;
-         alumno.email=this.email;
-         alumno.password=this.password;
-         alumno.grado=this.grado;
-         alumno.seccion=this.seccion;
-        respuesta=alumno.RegistrarAlumno(); //ejecuta el método que registra alumno
+         Datos.ClsAsegurados asegurados=new Datos.ClsAsegurados();
+         asegurados.NumAsegurados=this.NumAsegurados;
+         asegurados.NomAseg=this.NomAseg;
+         asegurados.FechaNac=this.FechaNac;
+         asegurados.Categoria=this.Categoria;
+         asegurados.Hospital=this.Hospital;
+         asegurados.Estado=this.Estado;
+
+        respuesta=asegurados.RegistrarAsegurados(); //ejecuta el método que registra asegurados
                  
     }catch(Exception ex){
         System.out.println("Se ha presentado el siguiente Error: "+ex);
@@ -48,23 +40,19 @@ public boolean RegistrarAlumno(){
     return respuesta;
 }
    /**Lógica-Método para Actualizar Persona*/
-public boolean ActualizarAlumno(){
+    public boolean ActualizarAsegurados(){
      boolean respuesta=true;
      
     try {
-         Datos.ClsAlumno alumno=new Datos.ClsAlumno();
-         alumno.idalumno=this.idalumno;
-         alumno.apellidos=this.apellidos;
-         alumno.nombres=this.nombres;
-         alumno.fechaNacimiento=ConvertirFecha(this.fechaNacimiento);
-         alumno.sexo=this.sexo;
-         alumno.direccion=this.direccion;
-         alumno.telefono=this.telefono;
-         alumno.email=this.email;
-         alumno.password=this.password;
-         alumno.grado=this.grado;
-         alumno.seccion=this.seccion;
-        respuesta=alumno.ActualizarAlumno(); //ejecuta el método que actualiza alumno
+         Datos.ClsAsegurados asegurados=new Datos.ClsAsegurados();
+         asegurados.NumAsegurados=this.NumAsegurados;
+         asegurados.NomAseg=this.NomAseg;
+         asegurados.FechaNac=this.FechaNac;
+         asegurados.Categoria=this.Categoria;
+         asegurados.Hospital=this.Hospital;
+         asegurados.Estado=this.Estado;
+         
+        respuesta=asegurados.ActualizarAsegurados(); //ejecuta el método que actualiza asegurado
                  
     }catch(Exception ex){
         System.out.println("Se ha presentado el siguiente Error: "+ex);
@@ -73,12 +61,12 @@ public boolean ActualizarAlumno(){
     return respuesta;
 }
 
-public boolean EliminarAlumno(int idAlumno){
+public boolean EliminarAsegurados(int NumAsegurados){
      boolean respuesta=true;
      
     try {
-         Datos.ClsAlumno alumno=new Datos.ClsAlumno();
-         respuesta=alumno.EliminarAlumno(idAlumno); //ejecuta el método que elimina alumno         
+         Datos.ClsAsegurados asegurados=new Datos.ClsAsegurados();
+         respuesta=asegurados.EliminarAsegurados(NumAsegurados); //ejecuta el método que elimina asegurados         
     }catch(Exception ex){
         System.out.println("Se ha presentado el siguiente Error: "+ex);
     }
@@ -100,12 +88,12 @@ public boolean EliminarAlumno(int idAlumno){
     return fechaDevolver;
 }
      /**Lógica- Listar Personas*/
-       public TableModel ListarAlumnos(){
+       public TableModel ListarAsegurados(){
         TableModel modelo = new DefaultTableModel();
 
         try {
-                       Datos.ClsAlumno persona=new Datos.ClsAlumno();
-                       modelo=persona.ListarAlumnos();
+                       Datos.ClsAsegurados persona=new Datos.ClsAsegurados();
+                       modelo=persona.ListarAsegurados();
             
         } catch(Exception ex) {
              System.out.println(ex);        
@@ -114,34 +102,19 @@ public boolean EliminarAlumno(int idAlumno){
        }
        
        
-       
-        public TableModel ListarAlumnosvista(){
-        TableModel modelo = new DefaultTableModel();
 
-        try {
-                       Datos.ClsAlumno persona=new Datos.ClsAlumno();
-                       modelo=persona.ListarAlumnosvista();
-            
-        } catch(Exception ex) {
-             System.out.println(ex);        
-        }
-        return modelo;
-       }
-       
-       
-       
        
        
        
        
 
       /**Lógica- Busca Personas*/
-       public TableModel BusquedaAlumnos(String ApellidosNombres){
+       public TableModel BusquedaAsegurados(String NomAseg){
         TableModel modelo = new DefaultTableModel();
 
         try {
-                       Datos.ClsAlumno alumno=new Datos.ClsAlumno();
-                       modelo=alumno.BusquedaAlumnos(ApellidosNombres);
+                       Datos.ClsAsegurados asegurados=new Datos.ClsAsegurados();
+                       modelo=asegurados.BusquedaAsegurados(NomAseg);
             
         } catch(Exception ex) {
              System.out.println(ex);        
@@ -150,62 +123,5 @@ public boolean EliminarAlumno(int idAlumno){
        }
        
        
-       public TableModel BusquedaAlumnosgrado(String grado){
-        TableModel modelo = new DefaultTableModel();
-
-        try {
-                       Datos.ClsAlumno alumno=new Datos.ClsAlumno();
-                       modelo=alumno.BusquedaAlumnosgrado(grado);
-            
-        } catch(Exception ex) {
-             System.out.println(ex);        
-        }
-        return modelo;
-       }
-       
-       
-       public TableModel BusquedaAlumnosseccion(String seccion){
-        TableModel modelo = new DefaultTableModel();
-
-        try {
-                       Datos.ClsAlumno alumno=new Datos.ClsAlumno();
-                       modelo=alumno.BusquedaAlumnosseccion(seccion);
-            
-        } catch(Exception ex) {
-             System.out.println(ex);        
-        }
-        return modelo;
-       }
-       
-       
-       
-       public TableModel BusquedaAlumnosvista(String ApellidosNombres){
-        TableModel modelo = new DefaultTableModel();
-
-        try {
-                       Datos.ClsAlumno alumno=new Datos.ClsAlumno();
-                       modelo=alumno.BusquedaAlumnosvista(ApellidosNombres);
-            
-        } catch(Exception ex) {
-             System.out.println(ex);        
-        }
-        return modelo;
-       }
-       
-       
-       
-       
-       
-       public ComboBoxModel ListarGrado(){
-                  ComboBoxModel modelo = new DefaultComboBoxModel();
-
-        try {
-                       Datos.ClsAlumno persona=new Datos.ClsAlumno();
-                       modelo=persona.ListarGrado();
-            
-        } catch(Exception ex) {
-             System.out.println(ex);        
-        }
-        return modelo;
-       }
+          
 }
